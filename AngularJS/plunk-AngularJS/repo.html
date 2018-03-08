@@ -1,0 +1,23 @@
+<h2>{{repo.name}}</h2>
+
+<div>
+  Issues: {{repo.open_issues_count}} 
+</div>
+
+<div>
+ 
+  <ul>
+    <li ng-repeat="fork in forks.users">
+      <img src="{{fork.avatar_url}}" alt="{{fork.login}}"/>
+      
+      <li>
+        avatar:{{fork.avatar_url}}
+        user: {{ fork.login }}
+      </li>
+    
+  </ul>
+   
+</div>
+
+<a href="#/main">Back to Search</a>
+<a href="#/user/{{repo.owner.login}}">Back to {{repo.owner.login}}</a>
