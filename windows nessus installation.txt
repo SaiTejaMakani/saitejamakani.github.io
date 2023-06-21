@@ -1,0 +1,28 @@
+wget --no-check-certificate --no-proxy 'https://cybersecurity-devops.s3.us-west-2.amazonaws.com/tenable/NessusAgent-8.3.5-x64.msi'
+
+
+
+
+/opt/nessus_agent/sbin/nessuscli agent link --key=e1c72519f9472a46ea04db78d0278316bcfe05a1b716a390eb1a037b31b69fc5 --groups="WindowsServerInAWS" --host=sensor.cloud.tenable.com --port=443
+
+
+echo 'Installing Nessus agent for Windows!'
+
+wget -OutFile NessusAgent-8.3.5-x64.msi 'https://cybersecurity-devops.s3.us-west-2.amazonaws.com/tenable/NessusAgent-8.3.5-x64.msi?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFAaCXVzLWVhc3QtMiJHMEUCIQD4S8hI1pR93J5tkFVtxC7tDT5eN701iNJaSBTOc3vShwIgVmi6zAhhcR5hUFrub611oAuOwOrSeLHW2ZHiia5UIZMqiAMIqf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgwwNTg4MTU3NzU3NDIiDFvlUcnSLcY2cTonYyrcAqzbD9TX%2BYtslVqFKekfFGvlXwq8%2Blg%2FjPD8fTiXY5x2USoyDdLdN7uu3dN2Eya9HimCsavjTRztyjFRL%2FI2%2BKY4cfZ2rEQtSgG8%2Bosyc5QKekKIqKnlStthSg0LBU3j%2Btn3owY%2B4gnu1jnA8fDHdBoHgeeZ6f7UfM9%2FnBxihjAK6Q5DRRy4gYxnhTLn%2BzKGT0aGZum3IgQbzh2gMmTREXvBBdd%2FOkFBrgibxpfQLxY9%2FOmMTLG2RtIIEfAs0D83UmWpbaCJIA4JvDz17qwE5noRR5cHMrY1gvRvUOVDZFcCLM6KrkG99j2yF3QnGO1DmBuy33VRPF%2B1qs4kJ%2FoAKFbmXDD4Q7bJbdvjwfapB2UwWFWBCz0jPn3pPJa0nTm8mdqNmOr5CtXjv7ndgSBVWpRdx9X89h%2B2%2B1E%2Fbtj%2FZhx9L1aAoUqEpqvODvMzJKwDel%2FpAzjuGYbuqBHfwzDE7cakBjqzAvCD99LdAnP6DY6vvHAiXQWLqt4%2FhehcmziuJgQcUAeMOilFy0QRCMJ0iDFyrPwDpRVEAKzFG%2B%2FkSZnHf0gQz5q5pcrMsTRb2wQ4AwZAg8X%2BVpLOyNxAjjgWhOa1T5H%2FCmc3CT%2BCiK3hmY431W%2BDzDofZMBxANQSBhYy%2FJ1iRP2Lf7AvvQYDWCOc6NFwknjspTxGI1GRV1ZhDWXWqY%2FQl3boyqCsJiiNU9XW4YGv7X0IKw29gdp4%2Fg8YSSGlMYcjRyuAf0HARvd3Tf8UV2TIqutJDnnzXezQ8PDqc5QquRsdxriYO2IEMo585Zg7OEiIPcGryW6iXhnKMjI04Cd%2FxZtKdAjui499eoy07Di%2FGV7wu7dpKT3L5A%2BgsfKE%2FpbhBtgJNx6KC24bhDpq2wIuCdjJNU0%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230620T174122Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Credential=ASIAQ3MNRQP7JX2OPEUE%2F20230620%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=cbe3a65dd7f752c64c2746e12f5904d43c4349ad9eb67a40679e5c3e8ef453a8'
+timeout 60
+
+msiexec.exe /i NessusAgent-8.3.5-x64.msi NESSUS_GROUPS="WindowsServerInAWS" NESSUS_SERVER="sensor.cloud.tenable.com:443" NESSUS_KEY=e1c72519f9472a46ea04db78d0278316bcfe05a1b716a390eb1a037b31b69fc5 /qn
+
+timeout 60
+
+del NessusAgent-8.3.5-x64.msi
+
+echo 'Nessus Agent successfully Installed!'
+
+
+to uninstall package:
+
+msiexec.exe /x 'C:\Program Files\Tenable\Nessus Agent'
+
+
+C:\Program Files\Tenable\Nessus Agent\nessuscli.exe nessuscli agent status
