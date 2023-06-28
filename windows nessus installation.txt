@@ -22,6 +22,11 @@ echo 'Nessus Agent successfully Installed!'
 
 to uninstall package:
 
+
+Test-Netconnection -Computername ssm.us-west-2.amazonaws.com -port 443
+Test-Netconnection -Computername ec2messages.us-west-2.amazonaws.com -port 443
+Test-Netconnection -Computername ssmmessages.us-west-2.amazonaws.com -port 443
+
 msiexec.exe /x 'C:\Program Files\Tenable\Nessus Agent'
 
 
