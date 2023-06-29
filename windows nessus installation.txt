@@ -35,3 +35,8 @@ C:\Program Files\Tenable\Nessus Agent\nessuscli.exe nessuscli agent status
 s3://cybersecurity-devops/crowdstrike/WindowsSensor.MaverickGyr_C6B9149287264667ABE32DBB245FF7C2-CF.exe
 
 
+
+https://aws-support-uploader.s3.amazonaws.com/uploader?account-id=058815775742&case-id=13028015781&expiration=1689108185&key=16a2eebd6560b91c6cb2645effeec9144bbdbc84e29e6c7411d9f49fba99c429 
+
+
+
